@@ -16,7 +16,9 @@ class State(BaseModel, Base):
     else:
         @property
         def cities(self):
-            """"""
+            """
+            cities
+            """
             import models
             from models.city import City
 
