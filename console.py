@@ -126,11 +126,11 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         all_list = args.split(" ")
-        new_instance = eval(class_name)
+        new_instance = eval(class_name)()
 
         for i in range(1, len(all_list)):
             key, value = tuple(all_list[i].split("="))
-            if value.startswith('""'):
+            if value.startswith('"'):
                 value = value.strip('"').replace("_", " ")
             else:
                 try:
@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
             if hasattr(new_instance, key):
                 setattr(new_instance, key, value)
 
-        storage.save()
+        storage.new(new_instance)
         print(new_instance.id)
         new_instance.save()
 

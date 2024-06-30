@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 """Defines unittests for console.py."""
 import os
+import sys
 import unittest
 from unittest.mock import patch
 from io import StringIO
 from console import HBNBCommand
 from models.engine.file_storage import FileStorage
+
+sys.path.insert(0, '../')
 
 
 class TestHBNBCommand(unittest.TestCase):
